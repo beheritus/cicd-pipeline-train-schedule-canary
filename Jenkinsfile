@@ -29,6 +29,9 @@ pipeline {
             when {
                 branch 'master'
             }
+            environment { 
+                CANARY_REPLICAS = 1
+            }
             steps {
                 script {
                     docker.withRegistry('https://registry.hub.docker.com', 'docker_hub_login') {
@@ -53,6 +56,9 @@ pipeline {
         stage('DeployToProduction') {
             when {
                 branch 'master'
+            }
+            environment { 
+                CANARY_REPLICAS = 1
             }
             steps {
                 input 'Deploy to Production?'
