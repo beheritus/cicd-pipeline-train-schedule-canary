@@ -46,7 +46,6 @@ pipeline {
                 CANARY_REPLICAS = 1
             }
             steps {
-                input 'Deploy Canary'
                 kubernetesDeploy(
                     kubeconfigId: 'kubeconfig',
                     configs: 'train-schedule-kube-canary.yml',
