@@ -41,7 +41,7 @@ pipeline {
                 }
             }
         }
-        stage('DeployToProduction') {
+        stage('Deploy Canary') {
             when {
                 branch 'master'
             }
@@ -54,7 +54,7 @@ pipeline {
                 )
             }
 	    }
-        stage('DeployToProduction') {
+        stage('Deploy To Production') {
             when {
                 branch 'master'
             }
